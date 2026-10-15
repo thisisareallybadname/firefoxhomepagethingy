@@ -23,9 +23,11 @@ Edit files in `src/` and `public/`, never in `docs/` (it gets wiped on every bui
 
 1. Create a new repository on GitHub and make it **Public**. On the free plan, Pages only works with public repositories.
 2. Upload the project the way you normally do. Include the `docs/` folder, it is the website.
-3. In the repository go to Settings > Pages (under "Code, planning, and automation"). Under "Build and deployment" set Source to **Deploy from a branch**, pick your main branch, set the folder to **/docs**, and click Save.
-4. Wait a few minutes, then refresh that Settings page. The address appears at the top. If it never appears, look at the repository's Actions tab for a failed page build.
-5. Open the address to check it works. (please)
+3. In the repository go to Settings > Pages (under "Code, planning, and automation"). Under "Build and deployment" set Source to **GitHub Actions**. The project includes `.github/workflows/pages.yml`, which publishes the `docs/` folder exactly as it is on every push, so Jekyll (GitHub's default site builder) never runs. The `.github` folder has to sit at the top level of the repository.
+4. Push to your main branch, or run it by hand from the Actions tab (Deploy site > Run workflow). A run takes a minute or two. When it turns green, the address is shown on the run and on the Settings > Pages page.
+5. Open the address to check it works.
+
+**If you see an error about a Jekyll theme.** That means GitHub tried to build the repository with Jekyll, which this project does not use. Either switch Source to GitHub Actions as above, or, if you stay on "Deploy from a branch" with the `/docs` folder, make sure the file `docs/.nojekyll` exists in the repository (hidden files are sometimes skipped by uploads; on GitHub use Add file > Create new file and name it `docs/.nojekyll`). If you publish from the repository root instead, the `.nojekyll` file in the project's top folder does the same job.
 
 The address depends on the repository name: a repo called `blue-hour-homepage` gives `https://YOURNAME.github.io/blue-hour-homepage/`, and a repo called `YOURNAME.github.io` gives `https://YOURNAME.github.io/`. Either works with this project.
 
