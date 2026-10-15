@@ -1,0 +1,15 @@
+{
+  "name": "blue-hour-homepage",
+  "version": "1.0.0",
+  "private": true,
+  "description": "cozy blue hour firefox homepage with a clock, weather, and assignment lists",
+  "scripts": {
+    "build": "tsc --noEmit && node build.mjs",
+    "dev": "node build.mjs --watch",
+    "check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "typescript": "^6.0.3"
+  }
+}

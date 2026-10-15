@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" data-power="normal">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>blue hour</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // set saver mode before first paint so there is no flash of rain
+    try {
+      if (JSON.parse(localStorage.getItem("blueHour.powerSaver"))) document.documentElement.dataset.power = "saver";
+    } catch (e) {}
+  </script>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <canvas id="rain" aria-hidden="true"></canvas>
+
+  <main class="page">
+    <header class="top">
+      <section id="clock" class="clock" aria-label="clock"></section>
+      <section id="weather" class="weather" aria-label="weather"></section>
+    </header>
+
+    <section id="search" class="search" aria-label="search"></section>
+
+    <section class="panels">
+      <div id="panelCanvas"></div>
+      <div id="panelCalendar"></div>
+    </section>
+  </main>
+
+  <footer class="corner">
+    <div id="backup" class="backup"></div>
+    <div id="saver"></div>
+  </footer>
+</body>
+</html>
