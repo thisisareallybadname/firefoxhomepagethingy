@@ -71,7 +71,7 @@ export class Rain implements Widget {
 
   private makeDrop(randomHeight: boolean): Drop {
     const near = Math.random() < NEAR_CHANCE;
-    const length = near ? 14 + Math.random() * 10 : 7 + Math.random() * 7;
+    const length = near ? 28 + Math.random() * 10 : 14 + Math.random() * 14;
     return {
       x: this.randomX(),
       y: randomHeight ? Math.random() * this.canvas.height : -length,
